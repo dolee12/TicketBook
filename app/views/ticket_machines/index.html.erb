@@ -1,0 +1,27 @@
+<h1>Listing ticket_machines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title,</th>
+      <th>Ticket seq</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ticket_machines.each do |ticket_machine| %>
+      <tr>
+        <td><%= ticket_machine.name %></td>
+        <td><%= ticket_machine.ticket_seq %></td>
+        <td><%= link_to 'Show', ticket_machine %></td>
+        <td><%= link_to 'Edit', edit_ticket_machine_path(ticket_machine) %></td>
+        <td><%= link_to 'Destroy', ticket_machine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ticket machine', new_ticket_machine_path %>

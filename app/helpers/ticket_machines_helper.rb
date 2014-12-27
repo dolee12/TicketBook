@@ -1,0 +1,2 @@
+module TicketMachinesHelper
+end
