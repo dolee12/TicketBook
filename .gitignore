@@ -15,5 +15,8 @@
 /log/*.log
 /tmp
 
-# Ignore all .D
+# Ignore all dummy files for OSX
 .DS_Store
+
+# Ignore database
+/db/database.yml
