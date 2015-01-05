@@ -25,6 +25,8 @@ class StoresController < ApplicationController
   # POST /stores.json
   def create
     @store = Store.new(store_params)
+    
+    @store.user_id = 1
 
     respond_to do |format|
       if @store.save
