@@ -10,6 +10,7 @@ class StoresController < ApplicationController
   # GET /stores/1
   # GET /stores/1.json
   def show
+    @ticket_machines = TicketMachine.where("store_id = ?", @store.id)
   end
 
   # GET /stores/new
@@ -26,7 +27,7 @@ class StoresController < ApplicationController
   def create
     @store = Store.new(store_params)
     
-    @store.user_id = 1
+    @store.user_id = @user_id
 
     respond_to do |format|
       if @store.save
@@ -67,6 +68,7 @@ class StoresController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_store
       @store = Store.find(params[:id])
+      @user_id = 1
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

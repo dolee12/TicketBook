@@ -1,27 +1,24 @@
-<h1>Listing ticket_machines</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title,</th>
-      <th>Ticket seq</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ticket_machines.each do |ticket_machine| %>
-      <tr>
-        <td><%= ticket_machine.name %></td>
-        <td><%= ticket_machine.ticket_seq %></td>
-        <td><%= link_to 'Show', ticket_machine %></td>
-        <td><%= link_to 'Edit', edit_ticket_machine_path(ticket_machine) %></td>
-        <td><%= link_to 'Destroy', ticket_machine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Ticket machine', new_ticket_machine_path %>
+<%if @ticket_machines.length == 0 %>
+ <div class="alert alert-danger alert-dismissible" role="alert">
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+   <strong>알림</strong> 번호표를 아직 만들지 않았습니다. </div>
+<%end%>
+<% @ticket_machines.each do |ticket_machine| %>
+<div class="panel panel-default">
+	<div class="panel-heading"><div class="panel-title"><%= ticket_machine.name %></div></div>
+	<table class="table table" border=0>
+		
+	<tr>
+		<td width="100"><strong>총 대기자:</strong></td>
+		<td><%= ticket_machine.ticket_seq %> 명</td>
+	</tr>
+	 <tr>
+		<td width="70"><strong>평균대기시간:</strong></td>
+		<td>15 분</span></td>
+	</tr>
+	 <tr>
+		<td colspan=2><button class="btn btn-success">번호표 발행</button></td>
+	</tr>
+	</table>
+</div>
+<% end %>

@@ -1,7 +1,7 @@
 <ul class="media-list">
 	<% @stores.each do |store| %>
 	<li class="media" style="border-bottom: 1px solid #ccc">
-      <a class="pull-left" href="#">
+      <a class="pull-left" href="/stores/<%=store.id%>">
 		  <img src="<%=image_url("1.jpg")%>" width="64" height="64" class="img-rounded"/>
 	  </a>
 	  <div class="meida-body">

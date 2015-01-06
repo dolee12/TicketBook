@@ -1,54 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<div class="panel-title">업체 정보</div>
+	</div>
+	<table class="table table" border=0>
+		<tr>
+			<td width="75"><strong>업체명:</strong></td>
+			<td><%= @store.name %></td>
+		</tr>
+		<tr>
+			<td><strong>대표자명:</strong></td>
+			<td><%= @store.user.name %></td>
+		</tr>
+		<tr>
+			<td><strong>운영시간:</strong></td>
+			<td><%= @store.open_time.to_s(:time) %> - <%= @store.close_time.to_s(:time) %></td>
+		</tr>
+		<tr>
+			<td><strong>전화번호:</strong></td>
+			<td><%= @store.tel %></td>
+		</tr>
+		<tr>
+			<td><strong>주소:</strong></td>
+			<td><%= @store.address %></td>
+		</tr>
+		<tr>
+			<td colspan=2><strong>소개:</strong><pre> <%= @store.description %></pre></td>
+		</tr>
+	</table>
+</div>
+		
+<h4>번호표</h4>
 
-<p>
-  <strong>Owner id,:</strong>
-  <%= @store.user_id %>
-</p>
-
-<p>
-  <strong>Reg no,:</strong>
-  <%= @store.reg_no %>
-</p>
-
-<p>
-  <strong>Name,:</strong>
-  <%= @store.name %>
-</p>
-
-<p>
-  <strong>Tel,:</strong>
-  <%= @store.tel %>
-</p>
-
-<p>
-  <strong>Address,:</strong>
-  <%= @store.address %>
-</p>
-
-<p>
-  <strong>Location,:</strong>
-  <%= @store.location %>
-</p>
-
-<p>
-  <strong>Pic,:</strong>
-  <%= @store.pic %>
-</p>
-
-<p>
-  <strong>Description,:</strong>
-  <%= @store.description %>
-</p>
-
-<p>
-  <strong>Open time,:</strong>
-  <%= @store.open_time %>
-</p>
-
-<p>
-  <strong>Close time:</strong>
-  <%= @store.close_time %>
-</p>
-
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>
+ <div class="alert alert-warning alert-dismissible" role="alert">
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+   새 번호표를 추가하려면 <a href="#"><strong>여기</strong></a> 을 누르세요. </div>
+   
+<%= render :template => "ticket_machines/index"%>

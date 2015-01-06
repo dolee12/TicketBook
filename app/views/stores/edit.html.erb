@@ -1,6 +1,16 @@
-<h1>Editing store</h1>
+<div role="tabpanel">
 
-<%= render 'form' %>
+  <!-- Nav tabs -->
+  <ul class="nav nav-pills" role="tablist">
+    <li role="presentation" class="active"><a href="#info" aria-controls="Info" role="tab" data-toggle="tab">업체 정보</a></li>
+    <li role="presentation"><a href="#ticket_machine" aria-controls="Ticket Machine" role="tab" data-toggle="tab">티켓머신</a></li>
+  </ul>
 
-<%= link_to 'Show', @store %> |
-<%= link_to 'Back', stores_path %>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="info">
+		<%= render 'form' %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="ticket_machine">...</div>
+  </div>
+</div>
