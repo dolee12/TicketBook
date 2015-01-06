@@ -1,23 +1,27 @@
-<%if @ticket_machines.length == 0 %>
- <div class="alert alert-danger alert-dismissible" role="alert">
-   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-   <strong>알림</strong> 번호표를 아직 만들지 않았습니다. </div>
-<%end%>
-<% @ticket_machines.each do |ticket_machine| %>
+<script language="javascript">
+
+function gen_num_ticket(machine_id) {
+	$('#myTicketModal').modal('show');
+	ticket_ticket_machine_id.value = machine_id;
+}
+
+</script>
+
+<% @ticket_machines.each do |machine| %>
 <div class="panel panel-default">
-	<div class="panel-heading"><div class="panel-title"><%= ticket_machine.name %></div></div>
+	<div class="panel-heading"><div class="panel-title"><%= machine.name %></div></div>
 	<table class="table table" border=0>
 		
 	<tr>
 		<td width="100"><strong>총 대기자:</strong></td>
-		<td><%= ticket_machine.ticket_seq %> 명</td>
+		<td><%= machine.ticket_seq %> 명</td>
 	</tr>
 	 <tr>
 		<td width="70"><strong>평균대기시간:</strong></td>
 		<td>15 분</span></td>
 	</tr>
 	 <tr>
-		<td colspan=2><button class="btn btn-success">번호표 발행</button></td>
+		<td colspan=2><button class="btn btn-success" onclick="javascript:gen_num_ticket(<%=machine.id%>)">번호표 발행</button></td>
 	</tr>
 	</table>
 </div>

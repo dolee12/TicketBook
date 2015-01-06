@@ -1,0 +1,47 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">가상 번호표 기계</h4>
+      </div>
+	  <%= form_for(@machine) do |f| %>
+      <div class="modal-body">
+		
+		  <% if @machine.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@machine.errors.count, "error") %> prohibited this ticket_machine from being saved:</h2>
+		      <ul>
+		      <% @machine.errors.full_messages.each do |message| %>
+		        <li><%= message %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+
+ 		  <div class="form-horizontal">
+	  	  	 <%= f.hidden_field :store_id %>
+		 	 <%= f.hidden_field :ticket_seq%>
+			 
+		  	<div class="field form-group">
+		   	 <%= f.label "번호표 이름", :class=>"form-label col-sm-2"  %>
+		 		<div class="col-sm-10">
+		    		<%= f.text_field :name, :class=>"form-control" %>
+				</div>
+		  	</div>
+			<div class="checkbox">
+			    <label>
+			      <%= f.check_box :enabled %> 동작함
+			    </label>
+			  </div>
+		  </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+        <%= f.submit "저장", class: "btn btn-primary" %>
+      </div>
+	 <% end %>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

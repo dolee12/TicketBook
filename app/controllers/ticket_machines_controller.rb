@@ -25,10 +25,11 @@ class TicketMachinesController < ApplicationController
   # POST /ticket_machines.json
   def create
     @ticket_machine = TicketMachine.new(ticket_machine_params)
-
+    
     respond_to do |format|
       if @ticket_machine.save
-        format.html { redirect_to @ticket_machine, notice: 'Ticket machine was successfully created.' }
+        
+        format.html { redirect_to :controller=>"stores", :action=>"show", :id=>@ticket_machine.store_id, :notice=>'Ticket machine was successfully created.' }
         format.json { render :show, status: :created, location: @ticket_machine }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class TicketMachinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_machine_params
-      params.require(:ticket_machine).permit(:title, :ticket_seq)
+      params.require(:ticket_machine).permit(:store_id, :ticket_seq, :name, :enabled, :title)
     end
 end

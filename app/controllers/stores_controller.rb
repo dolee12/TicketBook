@@ -11,6 +11,12 @@ class StoresController < ApplicationController
   # GET /stores/1.json
   def show
     @ticket_machines = TicketMachine.where("store_id = ?", @store.id)
+    @machine = TicketMachine.new
+    @machine.store_id = @store.id
+    @machine.enabled = true
+    
+    @ticket = Ticket.new
+    @ticket.user_id = 1
   end
 
   # GET /stores/new

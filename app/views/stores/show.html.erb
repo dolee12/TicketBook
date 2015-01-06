@@ -24,7 +24,7 @@
 			<td><%= @store.address %></td>
 		</tr>
 		<tr>
-			<td colspan=2><strong>소개:</strong><pre> <%= @store.description %></pre></td>
+			<td colspan=2><strong>소개:</strong><pre><%= @store.description %></pre></td>
 		</tr>
 	</table>
 </div>
@@ -32,7 +32,10 @@
 <h4>번호표</h4>
 
  <div class="alert alert-warning alert-dismissible" role="alert">
-   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-   새 번호표를 추가하려면 <a href="#"><strong>여기</strong></a> 을 누르세요. </div>
+   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>가상 번호표 기계를 추가하려면 <a href="#" data-toggle="modal" data-target="#myModal"><strong>여기</strong></a> 을 누르세요. </div>
    
 <%= render :template => "ticket_machines/index"%>
+
+<%= render :template => "ticket_machines/new_modal"%>
+
+<%= render :template => "tickets/new_modal"%>

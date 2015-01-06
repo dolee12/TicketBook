@@ -1,0 +1,17 @@
+
+
+<ul class="media-list">
+	<% @tickets.each do |ticket| %>
+	<% store = ticket.ticket_machine.store%>
+	<li class="media" style="border-bottom: 1px solid #ccc">
+      <a class="pull-left" href="/stores/<%=store.id%>">
+		  <img src="<%=image_url("1.jpg")%>" width="64" height="64" class="img-rounded"/>
+	  </a>
+	  <div class="meida-body">
+		    <h3 class="media-heading"><%= store.name%></h3>
+		    <p><span class="glyphicon glyphicon-user"></span> 대기 번호: <strong><%=ticket.ticket_no %></strong><%= button_to '예약취소', ticket, method: :delete, data: { confirm: '예약을 취소하겠습니까?'}, :class=>"btn btn-success btn-default pull-right" %></p>
+		    <p><span class="glyphicon glyphicon-phone-alt"></span> <%= store.tel %> | <span style="display:inline-block"><span class="glyphicon glyphicon-time" ></span> <%= store.open_time.to_s(:time)%> - <%=store.close_time.to_s(:time)%></span></p>
+	  </div>
+   </li>
+    <% end %>
+</ul>
